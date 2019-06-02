@@ -1,0 +1,59 @@
+{
+    "name": "bankpass",
+    "version": "0.0.1",
+    "description": "Bankpass SDK for nodejs",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "deploy:pre-steps": "npm run build && npm run build:types",
+        "prepare": "npm run deploy:pre-steps",
+        "release": "standard-version",
+        "test": "jest --coverage",
+        "build:types": "tsc --emitDeclarationOnly",
+        "debug": "node --inspect ./node_modules/.bin/jest --runInBand"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nanndoj/bankpass-sdk-nodejs.git"
+    },
+    "keywords": [
+        "bankpass",
+        "nodejs",
+        "sdk"
+    ],
+    "author": "Fernando Santos <fernando.santos@king.com>",
+    "license": "ISC",
+    "jest": {
+        "preset": "ts-jest"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run test && lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,json,css,md}": [
+            "prettier --write",
+            "git add"
+        ]
+    },
+    "devDependencies": {
+        "@types/bluebird": "^3.5.26",
+        "@types/core-js": "^0.9.36",
+        "@types/jest": "^23.3.14",
+        "@types/node": "^10.12.19",
+        "fetch-mock": "^7.3.3",
+        "husky": "^1.3.1",
+        "jest": "^24.8.0",
+        "lint-staged": "^8.1.4",
+        "prettier": "^1.16.4",
+        "standard-version": "^5.0.2",
+        "ts-jest": "^23.10.5",
+        "typescript": "^3.2.4"
+    },
+    "peerDependencies": {},
+    "dependencies": {
+        "node-fetch": "^2.6.0"
+    }
+}
