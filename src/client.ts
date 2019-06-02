@@ -93,7 +93,6 @@ export class Client  {
                             } catch(ex) {
                                 reason = text ? new Error(text) : {};
                             }
-                            console.log(text);
                             throw {
                                 status: RequestStatus.UNAUTHORIZED,
                                 reason
