@@ -129,15 +129,11 @@ export class Client  {
                     return this.fetchWithToken(url, request, token)
                         .then(resolve)
                         .catch(err => {
-                            console.log('Error fetching', err);
                             if (err && err.status === RequestStatus.UNAUTHORIZED) {
-                                console.log('The error status was ', err.status);
-                                console.log('Maybe the token was expired. Trying to fetch a new token ');
                                 // The token is not valid anymore
                                 // Getting a new access token
                                 return this.fetchToken()
                                     .then(({ accessToken }) => {
-                                        console.log('new access token', accessToken)
                                         // Save the new token
                                         this.setAccessToken(accessToken);
 
