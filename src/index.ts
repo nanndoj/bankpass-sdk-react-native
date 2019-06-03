@@ -1,9 +1,11 @@
 import {Auth, AuthOptions} from "./auth";
 import {Client} from "./client";
 import {IdentificationRequestOptions} from "./types/IdentificationRequestOption";
+import {Paths} from "./types/Paths";
 
 export {ServiceAccountOptions} from "./types/ServiceAccountOptions";
 export {KeyType} from "./types/KeyType";
+export { IdentificationRequestOptions };
 
 export class Bankpass {
 
@@ -16,15 +18,22 @@ export class Bankpass {
 
     requestUserIdentification = async (opts: IdentificationRequestOptions): Promise<{ orderId: string }> => {
        const client: Client = await this.getClient();
-       return client.request('/auth', opts);
-    };
-
-    collectResponse = async (orderId: string) => {
-        const client: Client = await this.getClient();
-        return client.request('/collect', { orderId });
+       return client.request(Paths.AUTH, opts);
     };
 
     requestUserSignature = (userId: string) => { throw 'Not implemented yet' };
+
+    collectResponse = async (orderId: string) => {
+        const client: Client = await this.getClient();
+        return client.request(Paths.COLLECT, { orderId });
+    };
+
+    getActivationCode = async (userId: string) => {
+        const client: Client = await this.getClient();
+        return client.request(Paths.CODE, { userId });
+    };
+
+
 
     private async getClient(): Promise<Client> {
         if(this._client) {
@@ -45,4 +54,3 @@ export class Bankpass {
 
 }
 
-export { IdentificationRequestOptions };
