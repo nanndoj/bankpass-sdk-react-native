@@ -35,7 +35,7 @@ export class Bankpass {
 
 
 
-    private async getClient(): Promise<Client> {
+    async getClient(): Promise<Client> {
         if(this._client) {
             return this._client;
         }
