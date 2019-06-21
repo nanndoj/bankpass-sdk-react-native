@@ -16,6 +16,7 @@
  */
 
 import { ClientFactory, Client } from 'bankpass-core';
+import { RSA } from 'react-native-rsa-native';
 
 class RNClient extends Client {
     fetch = fetch;
@@ -25,7 +26,7 @@ class RNClient extends Client {
      *
      */
     sign(data: any): Promise<string> {
-        return Promise.resolve('');
+        return RSA.sign(JSON.stringify(data), this.key);
     }
 }
 

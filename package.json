@@ -2,8 +2,7 @@
     "name": "react-native-bankpass",
     "version": "0.0.2",
     "description": "Bankpass SDK for React Native",
-    "main": "lib/index.js",
-    "types": "lib/index.d.ts",
+    "main": "index.js",
     "scripts": {
         "flow": "flow",
         "release": "standard-version",
