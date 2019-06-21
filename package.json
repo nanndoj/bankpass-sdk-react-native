@@ -1,6 +1,6 @@
 {
     "name": "bankpass-node",
-    "version": "0.0.3",
+    "version": "0.0.7",
     "description": "Bankpass SDK for nodejs",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
@@ -54,6 +54,7 @@
     },
     "peerDependencies": {},
     "dependencies": {
+        "bankpass-core": "0.0.3",
         "node-fetch": "^2.6.0"
     }
 }
