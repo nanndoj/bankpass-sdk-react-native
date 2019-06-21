@@ -32,6 +32,8 @@ Bankpass SDK for React Native
 npm install react-native-bankpass
 ```
 
+This module also requires `react-native-rsa-native`. Make sure it is installed and linked
+
 ### Using the client library
 
 #### Setup the client using your credentials
@@ -41,7 +43,7 @@ const { Bankpass } = require('react-native-bankpass');
 // import { Bankpass } from 'bankpass';
 
 const client = new Bankpass({
-    credentials,
+    credentials: {},
 });
 ```
 

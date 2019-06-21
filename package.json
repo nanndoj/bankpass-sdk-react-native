@@ -48,7 +48,7 @@
         "react-native-rsa-native": "^1.0.24"
     },
     "dependencies": {
-        "bankpass-core": "0.0.3",
+        "bankpass-core": "0.0.4",
         "react-native-rsa-native": "^1.0.24"
     }
 }
