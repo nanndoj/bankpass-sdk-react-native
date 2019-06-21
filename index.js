@@ -1,3 +1,4 @@
+//@flow
 import {
     Auth,
     AuthOptions,
@@ -5,7 +6,7 @@ import {
     IdentificationRequestOptions,
     Paths,
 } from 'bankpass-core';
-import { NodeClientFactory } from './node-client';
+import { RNClientFactory } from './react-native-client';
 
 export { ServiceAccountOptions } from 'bankpass-core';
 export { KeyType } from 'bankpass-core';
@@ -13,11 +14,11 @@ export { KeyType } from 'bankpass-core';
 export { IdentificationRequestOptions };
 
 export class Bankpass {
-    private _client: Client;
-    private authModule: Auth;
+    _client: Client;
+    authModule: Auth;
 
-    constructor(private opts: AuthOptions) {
-        this.authModule = new Auth(opts, NodeClientFactory);
+    constructor(opts: AuthOptions) {
+        this.authModule = new Auth(opts, RNClientFactory);
     }
 
     requestUserIdentification = async (
@@ -36,11 +37,6 @@ export class Bankpass {
         return client.request(Paths.COLLECT, { orderId });
     };
 
-    getActivationCode = async (userId: string) => {
-        const client: Client = await this.getClient();
-        return client.request(Paths.CODE, { userId });
-    };
-
     async getClient(): Promise<Client> {
         if (this._client) {
             return this._client;
@@ -50,7 +46,7 @@ export class Bankpass {
         return this._client;
     }
 
-    public async setAccessToken(token: string) {
+    async setAccessToken(token: string) {
         if (!this._client) {
             await this.getClient();
         }

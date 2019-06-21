@@ -1,25 +1,23 @@
 {
-    "name": "bankpass-node",
-    "version": "0.0.8",
-    "description": "Bankpass SDK for nodejs",
+    "name": "react-native-bankpass",
+    "version": "0.0.1",
+    "description": "Bankpass SDK for React Native",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "scripts": {
-        "build": "tsc",
-        "deploy:pre-steps": "npm run build && npm run build:types",
-        "prepare": "npm run deploy:pre-steps",
+        "flow": "flow",
         "release": "standard-version",
         "test": "jest --coverage",
-        "build:types": "tsc --emitDeclarationOnly",
         "debug": "node --inspect ./node_modules/.bin/jest --runInBand"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/nanndoj/bankpass-sdk-nodejs.git"
+        "url": "https://github.com/nanndoj/bankpass-sdk-react-native.git"
     },
     "keywords": [
         "bankpass",
-        "nodejs",
+        "react",
+        "native",
         "sdk"
     ],
     "author": "Fernando Santos <fernando.santos@king.com>",
@@ -44,6 +42,7 @@
         "@types/jest": "^23.3.14",
         "@types/node": "^10.12.19",
         "fetch-mock": "^7.3.3",
+        "flow-bin": "^0.101.1",
         "husky": "^1.3.1",
         "jest": "^24.8.0",
         "lint-staged": "^8.1.4",

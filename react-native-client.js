@@ -1,3 +1,4 @@
+//@flow
 /**
  * Copyright 2019 Bankpass Inc. All Rights Reserved.
  *
@@ -14,27 +15,22 @@
  * limitations under the License.
  */
 
-import { default as nodeFetch } from 'node-fetch';
 import { ClientFactory, Client } from 'bankpass-core';
-import { createSign } from 'crypto';
 
-class NodeClient extends Client {
-    protected fetch = nodeFetch;
+class RNClient extends Client {
+    fetch = fetch;
 
     /**
      * Sign the data using the private key and returns the signature
      *
      */
-    protected sign(data: any): Promise<string> {
-        const sign = createSign('SHA256');
-        sign.update(JSON.stringify(data));
-        sign.end();
-        return Promise.resolve(sign.sign(this.key, 'hex'));
+    sign(data: any): Promise<string> {
+        return Promise.resolve('');
     }
 }
 
-export const NodeClientFactory: ClientFactory = {
+export const RNClientFactory: ClientFactory = {
     getClient: opts => {
-        return new NodeClient(opts);
+        return new RNClient(opts);
     },
 };

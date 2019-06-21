@@ -1,23 +1,21 @@
 # Bankpass nodejs SDK
 
-Bankpass SDK for NodeJS
+Bankpass SDK for React Native
 
-
-* [Bankpass Client API Reference][client-docs]
+-   [Bankpass Client API Reference][client-docs]
 
 [explained]: https://cloud.google.com/apis/docs/client-libraries-explained
 
 **Table of contents:**
 
-
-* [Quickstart](#quickstart)
-  * [Before you begin](#before-you-begin)
-  * [Installing the client library](#installing-the-client-library)
-  * [Using the client library](#using-the-client-library)
-* [Samples](#samples)
-* [Versioning](#versioning)
-* [Contributing](#contributing)
-* [License](#license)
+-   [Quickstart](#quickstart)
+    -   [Before you begin](#before-you-begin)
+    -   [Installing the client library](#installing-the-client-library)
+    -   [Using the client library](#using-the-client-library)
+-   [Samples](#samples)
+-   [Versioning](#versioning)
+-   [Contributing](#contributing)
+-   [License](#license)
 
 ## Quickstart
 
@@ -31,46 +29,44 @@ Bankpass SDK for NodeJS
 ### Installing the client library
 
 ```bash
-npm install bankpass
+npm install react-native-bankpass
 ```
-
 
 ### Using the client library
 
 #### Setup the client using your credentials
 
 ```javascript
-const {Bankpass} = require('bankpass');
+const { Bankpass } = require('react-native-bankpass');
 // import { Bankpass } from 'bankpass';
 
 const client = new Bankpass({
-  credentials
+    credentials,
 });
-
 ```
 
 #### Request the user identification
 
 ```javascript
-
-client.requestUserIdentification({
-    userId,
-    requirements: []
-}).then(response => {
-    console.log(response.orderId);
-})
-
+client
+    .requestUserIdentification({
+        userId,
+        requirements: [],
+    })
+    .then(response => {
+        console.log(response.orderId);
+    });
 ```
 
 #### Request the user signature
 
 ```javascript
-
-client.requestUserSignature({
-    userId,
-    requirements: []
-}).then(response => {
-    console.log(response.orderId);
-})
-
+client
+    .requestUserSignature({
+        userId,
+        requirements: [],
+    })
+    .then(response => {
+        console.log(response.orderId);
+    });
 ```
