@@ -1,6 +1,6 @@
 {
-    "name": "bankpass",
-    "version": "0.0.6",
+    "name": "bankpass-node",
+    "version": "0.0.2",
     "description": "Bankpass SDK for nodejs",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
