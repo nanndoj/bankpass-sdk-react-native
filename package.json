@@ -1,6 +1,6 @@
 {
     "name": "react-native-bankpass",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Bankpass SDK for React Native",
     "main": "index.js",
     "scripts": {
