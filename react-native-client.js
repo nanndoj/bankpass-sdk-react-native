@@ -26,7 +26,7 @@ class RNClient extends Client {
      *
      */
     sign(data: any): Promise<string> {
-        return RSA.sign(JSON.stringify(data), this.key);
+        return RSA.signWithAlgorithm(JSON.stringify(data), this.key, "SHA256withRSA");
     }
 }
 
